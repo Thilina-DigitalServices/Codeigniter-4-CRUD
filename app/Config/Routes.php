@@ -40,6 +40,7 @@ $routes->get('/simple', 'SiteController::simple');
 $routes->get('/about-us', 'SiteController::aboutUs');
 $routes->get('/contact-us', 'SiteController::contactUs');
 $routes->get('/users', 'SiteController::users');
+$routes->get('/employees', 'SiteController::employee');
 
 /*
  * --------------------------------------------------------------------

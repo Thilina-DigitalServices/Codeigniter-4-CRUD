@@ -1,16 +1,14 @@
 <?php
 namespace App\Controllers;
 
-use App\Models\User;
+use App\Models\Employee;
 
 class SiteController extends BaseController{
     
-    function users(){
-        $user = new User();
-        // $data['user'] = $user->findAll();
-        return view("/Template/user", 
-        // $data
-    );
+    public function employee(){
+        $employee = new Employee();
+        $data["employee"] = $employee->findAll();
+        return view("Template/employee",$data);
     }
 }
 ?>
