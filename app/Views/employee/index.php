@@ -16,8 +16,10 @@
             <div class="col-md-12 mt-5">
                 <div class="card">
                     <div class="card-header">
+                        <h4>Employee Data
+                            <a href="<?= base_url('add-employee') ?>" class="btn btn-primary float-end">Add Employee</a>
+                        </h4>
                         <div class="card-body">
-                            <h4>Employee Data</h4>
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
@@ -26,18 +28,27 @@
                                         <th>Age</th>
                                         <th>Email</th>
                                         <th>Phone</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($employee as $row) : ?>
-                                    <tr>
-                                        <td><?= $row['id']?></td>
-                                        <td><?= $row['name']?></td>
-                                        <td><?= $row['age']?></td>
-                                        <td><?= $row['email']?></td>
-                                        <td><?= $row['phone']?></td>
-                                    </tr>
+                                    <?php foreach ($employee as $row) : ?>
+                                        <tr>
+                                            <td><?= $row['id'] ?></td>
+                                            <td><?= $row['name'] ?></td>
+                                            <td><?= $row['age'] ?></td>
+                                            <td><?= $row['email'] ?></td>
+                                            <td><?= $row['phone'] ?></td>
+                                            <td>
+                                                <a href="<?= base_url('employee/edit/' . $row['id']) ?>" class="btn btn-success btn-sm">Edit</a>
+                                                <form action="<?= base_url('employee/delete/' . $row['id']) ?>" method="POST">
+                                                    <input type="hidden" name="_method" value="DELETE" />
+                                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
                                     <?php endforeach; ?>
+
                                 </tbody>
                             </table>
                         </div>

@@ -36,11 +36,12 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('/simple', 'SiteController::simple');
-$routes->get('/about-us', 'SiteController::aboutUs');
-$routes->get('/contact-us', 'SiteController::contactUs');
-$routes->get('/users', 'SiteController::users');
-$routes->get('/employees', 'SiteController::employee');
+$routes->get('/employee', 'SiteController::index');
+$routes->get('/add-employee', 'SiteController::create');
+$routes->post('/save-employee', 'SiteController::save');
+$routes->get('/employee/edit/(:num)', 'SiteController::edit/$1');
+$routes->put('/employee/update/(:num)', 'SiteController::update/$1');
+$routes->delete('/employee/delete/(:num)', 'SiteController::delete/$1');
 
 /*
  * --------------------------------------------------------------------
